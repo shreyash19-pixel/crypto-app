@@ -1,54 +1,65 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React,{useState } from 'react';
+import { CompanyName, CrossWrap, Hamburger, NavLinks, NavLinksWrap, Navbar, NavbarWrap, ResponsiveSocialWrap, ResponsiveWrap, SocialLinksWrap } from '../../styles/Nav';
+import { FiTwitter } from "react-icons/fi";
+import { RxDiscordLogo } from "react-icons/rx";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { RxCross2 } from "react-icons/rx";
 
 const Nav = () => {
-    const [data, setData] = useState([]);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const apikey = process.env.REACT_APP_CRYPTO_API; 
+  const navLinks = [
+    {title : "Home", link : "#Home"},
+    {title : "Market", link : "#Market"},
+    {title : "Choose Us", link : "#Choose Us"},
+    {title : "Join", link : "#Join"},
+  ]
 
-                const options = {
-                    method: 'GET',
-                    url: 'https://coinranking1.p.rapidapi.com/coins',
-                    params: {
-                        referenceCurrencyUuid: 'yhjMzLPhuIDl',
-                        timePeriod: '24h',
-                        'tiers[0]': '1',
-                        orderBy: 'marketCap',
-                        orderDirection: 'desc',
-                        limit: '50',
-                        offset: '0'
-                    },
-                    headers: {
-                        'X-RapidAPI-Key': apikey,
-                        'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
-                    }
-                };
+  const socialLinks = [
+    {icon : <FiTwitter />, link : "https://twitter.com/?lang=en"},
+    {icon : <RxDiscordLogo />, link : "https://discord.com/"},
+  ]
 
-                const response = await axios.request(options);
+  const [nav, setNav] = useState(false)
+    nav?document.body.style.overflow="hidden":document.body.style.overflow="auto";
 
-                if (!response.ok) {
-                    console.log("Response was not ok");
-                }
-
-                const responseData = response.data;
-                setData(responseData);
-            } catch (error) {
-                console.log(error.message);
-            }
-        };
-
-        fetchData();
-    }, []);
-
-    console.log(data);
     
     return (
-        <div>
-
-        </div>
+        <NavbarWrap>
+          <Navbar>
+            <CompanyName>
+              CRYPTO
+            </CompanyName>
+            <NavLinksWrap>
+              {navLinks.map((links) => (
+              <NavLinks href = {links.link}>{links.title}</NavLinks>
+              ))}
+            </NavLinksWrap>
+            <SocialLinksWrap>
+              {socialLinks.map((links) => (
+              <NavLinks href = {links.link}>{links.icon}</NavLinks>
+              ))}
+            </SocialLinksWrap>
+            <Hamburger onClick = {() => setNav(!nav)}>
+              <GiHamburgerMenu />
+            </Hamburger>
+            {nav &&
+            (<ResponsiveWrap>
+              <CrossWrap onClick = {() => setNav(!nav)}>
+                  <RxCross2 />
+              </CrossWrap>
+                     
+                {navLinks.map((links) => (
+                  <NavLinks onClick = {() => setNav(false)} href = {links.link}>{links.title}</NavLinks>
+              ))}
+              <ResponsiveSocialWrap>
+              {socialLinks.map((links) => (
+                            <NavLinks onClick = {() => setNav(false)} href = {links.link}>{links.icon}</NavLinks>
+                            ))}
+              </ResponsiveSocialWrap>
+            </ResponsiveWrap>
+            )}
+          </Navbar>
+        </NavbarWrap>
     );
 };
 

@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 
 function App() {
   return (
-    <div>
+    <div style = {{width: "100%", height: "100vh"}}>
      <Home />
     </div>
   );
