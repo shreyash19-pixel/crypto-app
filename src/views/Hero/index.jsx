@@ -6,33 +6,27 @@ import AppContext from '../../utils/AppContext';
 import axios from 'axios';
 const Hero = () => {
 
-    // const {data, setData} = useContext(AppContext)
+    const {data, setData,page} = useContext(AppContext)
 
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             const response = await axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false");
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=${page}&sparkline=false`);
 
-    //             if (!response.ok) {
-    //                 console.log("Response was not ok");
-    //             }
+                if (!response.ok) {
+                    console.log("Response was not ok");
+                }
 
-    //             const responseData = response.data;
-    //             setData(responseData);
-    //         } catch (error) {
-    //             console.log(error.message);
-    //         }
-    //     };
+                const responseData = response.data;
+                setData(responseData);
+            } catch (error) {
+                console.log(error.message);
+            }
+        };
 
-    //     fetchData();
-    // }, []);
+        fetchData();
+    }, [page]);
 
-    const data = [
-        {image : BitCoinImg, name : "Bitcoin", price_change_percentage_24h : "5.17%", current_price : "51,700"},
-        {image : EthImg, name : "Ethereum", price_change_percentage_24h : "2.19%", current_price : "11,300"},
-        {image : BitCoinImg, name : "Bitcoin", price_change_percentage_24h : "5.17%", current_price : "51,700"},
-        {image : EthImg, name : "Ethereum", price_change_percentage_24h : "2.19%", current_price : "11,300"},
-    ]
 
     function limitNumsAfterDecimal(num) {
         let limNum = num.toFixed(2)
@@ -61,7 +55,7 @@ const Hero = () => {
                 </HeroHeading1Wrap>
                 <HeroHeading2>CRYPTO CURRENCIES</HeroHeading2>   
             </HeroHeadingWrap>
-            {/* <Top4CryptoWrap>
+            <Top4CryptoWrap>
                 {data.slice(0,4).map((crp,index) => (
                 <CryptoPriceAndImgWrap>
                     <CryptoImgWrap>
@@ -70,34 +64,13 @@ const Hero = () => {
                     <CryptoPriceAndPercWrap>
                         <CryptoPercWrap>
                             {crp.name}
-                        <CryptoPercSpan>
-                            {limitNumsAfterDecimal(crp.price_change_percentage_24h)
+                        <CryptoPercSpan style = {{color : limitNumsAfterDecimal(crp.price_change_percentage_24h).includes("-") ? "red" : "#0ECB81"}}>
+                            {limitNumsAfterDecimal(crp.price_change_percentage_24h) + " %"
                             }
                         </CryptoPercSpan>
                         </CryptoPercWrap>
                         <CryptoPriceWrap>
                             {"$ " + numberWithCommas(crp.current_price)}
-                        </CryptoPriceWrap>
-                    </CryptoPriceAndPercWrap>
-                </CryptoPriceAndImgWrap>
-                ))}
-            </Top4CryptoWrap> */}
-            <Top4CryptoWrap>
-                {data.map((crp,index) => (
-                <CryptoPriceAndImgWrap>
-                    <CryptoImgWrap>
-                        <CryptoImg src = {crp.image} />
-                    </CryptoImgWrap>
-                    <CryptoPriceAndPercWrap>
-                        <CryptoPercWrap>
-                            {crp.name}
-                        <CryptoPercSpan>
-                            {crp.price_change_percentage_24h
-                            }
-                        </CryptoPercSpan>
-                        </CryptoPercWrap>
-                        <CryptoPriceWrap>
-                            {"$ " + crp.current_price}
                         </CryptoPriceWrap>
                     </CryptoPriceAndPercWrap>
                 </CryptoPriceAndImgWrap>

@@ -5,10 +5,13 @@ import AppContext from "./utils/AppContext";
 function App() {
 
   const [data,setData] = useState([])
+  const [page,setPage] = useState(1)
 
   const shareData = {
     data,
-    setData
+    setData,
+    page,
+    setPage
   }
 
   return (

@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const NavbarWrap = styled.div`
     width: 100%;
     padding: 20px 90px;
+    background-color: ${(props) => (props.isSticky ? "#0F051D" : "transparent")};
+    box-shadow: ${(props) => (props.isSticky ? "0px 10px 5px 0px rgba(0, 0, 0, 0.16);" : "none")};
+    position: fixed;
+    z-index: 99;
     
     @media (max-width : 1000px) {
         padding-inline: 40px;

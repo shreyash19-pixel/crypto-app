@@ -20,11 +20,25 @@ const Nav = () => {
   ]
 
   const [nav, setNav] = useState(false)
+  const [stickyNav, setStickyNav] = useState(false)
     nav?document.body.style.overflow="hidden":document.body.style.overflow="auto";
+
+    const handleStickyNav = () => {
+      if(window.scrollY > 40)
+      {
+        setStickyNav(true)
+      }
+      else
+      {
+        setStickyNav(false)
+      }
+    }
+
+    window.addEventListener("scroll",handleStickyNav)
 
     
     return (
-        <NavbarWrap>
+        <NavbarWrap isSticky = {stickyNav}>
           <Navbar>
             <CompanyName>
               CRYPTO

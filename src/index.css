@@ -3,6 +3,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Space Grotesk", sans-serif;
+  scrollbar-color: #db00d9 #fff;
+  scrollbar-width: thin;
 }
 
 body {

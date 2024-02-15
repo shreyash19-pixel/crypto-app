@@ -3,7 +3,7 @@ import styled,{keyframes} from 'styled-components'
 
 export const HeroContainer = styled.div`
     width: 100%;
-    padding: 40px 80px;
+    padding: 120px 80px 50px 80px;
     position: relative;
 
     @media (max-width: 1300px)
@@ -17,7 +17,7 @@ export const HeroWrap = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 70px;
    
 `
 
@@ -59,6 +59,11 @@ export const HeroHeadingCryptoImg = styled.img`
     @media (max-width: 550px)
     {
         max-width: 105px;
+    }
+
+    @media (max-width: 420px)
+    {
+       max-width: 130px;
     }
 `
 
@@ -115,7 +120,7 @@ export const Top4CryptoWrap = styled.div`
     grid-template-rows: auto;
 
 
-    @media (max-width: 768px)
+    @media (max-width: 850px)
     {
         grid-template-columns: 1fr 1fr;
         grid-gap: 60px;
@@ -142,32 +147,68 @@ export const CryptoImg = styled.img`
     {
         max-width: 50px;
     }
+
+   
 `
 
 export const CryptoPriceAndPercWrap = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 10px;  
     text-align: center;
+
+    
 `
 
 
 export const CryptoPercWrap = styled.div`
     color: white;
     display: flex;
-    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
     font-weight: 500;
     font-size: 18px;
-    
+
+    @media (max-width: 800px)
+    {
+        width: ${(props) => (props.market ? "120px" : "")};
+    }
+
+    @media (max-width: 500px)
+    {
+        gap: 7px;
+    }
 
     @media (max-width: 400px)
     {
-        font-size: 16px;
+        font-size: ${(props) => (props.market ? "18px" : "16px")};
     }
 `
 
 export const CryptoPercSpan = styled.span`
-    color: #0ECB81;
+    font-size: 23px;
+
+    @media (max-width: 1000px)
+    {
+        font-size: ${(props) => (props.market ? "23px" : "14px")};
+    }
+
+    @media (max-width: 800px)
+    {
+        width: ${(props) => (props.market ? "120px" : "")};
+    }
+
+    @media (max-width: 500px)
+    {
+        font-size: ${(props) => (props.market ? "18px" : "16px")};
+    }
+
+    @media (max-width: 400px)
+    {
+        font-size: ${(props) => (props.market ? "18px" : "11px")};
+    }
+
 `
 
 export const CryptoPriceWrap = styled.div`
@@ -175,8 +216,14 @@ export const CryptoPriceWrap = styled.div`
     font-weight: 500;
     font-size: 22px;
 
+
+    @media (max-width: 800px)
+    {
+        width: ${(props) => (props.market ? "120px" : "")};
+    }
+
     @media (max-width: 400px)
     {
-        font-size: 16px;
+        font-size: ${(props) => (props.market ? "18px" : "16px")};
     }
 `
