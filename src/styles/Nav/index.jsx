@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const NavbarWrap = styled.div`
     width: 100%;
-    padding: 40px 90px;
+    padding: 20px 90px;
     
     @media (max-width : 1000px) {
         padding-inline: 40px;
@@ -10,6 +10,7 @@ export const NavbarWrap = styled.div`
 
     @media (max-width : 768px) {
         padding-inline: 20px;
+        padding-block: 20px;
     }
 `
 
@@ -101,7 +102,7 @@ export const ResponsiveWrap = styled.div`
         position: absolute;
         top: 0;
         left:0px;
-        animation : left .8s ease-out;
+        animation : left .4s ease-out;
         font-size: 22px;
         z-index: 99999;
 

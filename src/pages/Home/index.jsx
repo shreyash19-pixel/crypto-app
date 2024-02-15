@@ -4,7 +4,7 @@ import Hero from '../../views/Hero'
 
 const Home = () => {
   return (
-    <div style = {{margin : "0 auto", maxWidth : "1350px"}}>
+    <div style = {{margin : "0 auto",height: "100%", maxWidth : "1400px"}}>
       <Nav />
       <Hero />
     </div>

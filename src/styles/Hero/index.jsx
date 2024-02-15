@@ -3,17 +3,12 @@ import styled,{keyframes} from 'styled-components'
 
 export const HeroContainer = styled.div`
     width: 100%;
-    padding: 80px;
+    padding: 40px 80px;
     position: relative;
 
     @media (max-width: 1300px)
     {
-        padding-inline: 20px;
-    }
-
-    @media (max-width: 400px)
-    {
-        padding-block: 30px;
+        padding-inline: 30px;
     }
 `
 
@@ -25,8 +20,6 @@ export const HeroWrap = styled.div`
     gap: 40px;
    
 `
-
-
 
 export const HeroHeadingWrap = styled.div`
     display: flex;
@@ -61,24 +54,23 @@ export const HeroHeadingCryptoImgWrap = styled.div`
 
 export const HeroHeadingCryptoImg = styled.img`
     width: 100%;
-    max-width: 70px;
+    max-width: 90px;
 
+    @media (max-width: 550px)
+    {
+        max-width: 105px;
+    }
 `
 
 
 export const HeroHeading1 = styled.h1`
     color: white;
-    font-size: 105px;
+    font-size: 85px;
 
 
-    @media (max-width: 1160px)
+    @media (max-width: 1124px)
     {
-        font-size: 85px;
-    }
-
-    @media (max-width: 1160px)
-    {
-        font-size: 65px;
+        font-size: 75px;
     }
 
     @media (max-width: 768px)
@@ -94,20 +86,15 @@ export const HeroHeading1 = styled.h1`
 `
 
 export const HeroHeading2 = styled.h1`
-     font-size: 105px;
+     font-size: 85px;
     background: linear-gradient(25deg, #2600fc, #ff00ea);
     -webkit-background-clip: text; /* For Safari */
     background-clip: text;
     color: transparent; /* Hides the original text */
 
-    @media (max-width: 1160px)
+    @media (max-width: 1124px)
     {
-        font-size: 85px;
-    }
-
-    @media (max-width: 1160px)
-    {
-        font-size: 65px;
+        font-size: 75px;
     }
 
     @media (max-width: 768px)
@@ -119,36 +106,64 @@ export const HeroHeading2 = styled.h1`
     {
         font-size: 40px;
     }
-
-
 `;
 
 export const Top4CryptoWrap = styled.div`
-    display: flex;
-    gap: 30px;
+    display: grid;
+    grid-gap: 80px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+
+
+    @media (max-width: 768px)
+    {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 60px;
+        row-gap: 20px;
+    }
 `
 
 export const CryptoPriceAndImgWrap = styled.div`
     display: flex;
     flex-direction: column;
+    gap: 10px;
 `
 
 export const CryptoImgWrap = styled.div`
-    
+    display: flex;
+    justify-content: center;
 `
 
 export const CryptoImg = styled.img`
     width: 100%;
+    max-width: 80px;
+
+    @media (max-width: 400px)
+    {
+        max-width: 50px;
+    }
 `
 
 export const CryptoPriceAndPercWrap = styled.div`
     display: flex;
     flex-direction: column;
+    gap: 10px;
+    text-align: center;
 `
 
 
 export const CryptoPercWrap = styled.div`
+    color: white;
+    display: flex;
+    gap: 5px;
+    font-weight: 500;
+    font-size: 18px;
     
+
+    @media (max-width: 400px)
+    {
+        font-size: 16px;
+    }
 `
 
 export const CryptoPercSpan = styled.span`
@@ -156,5 +171,12 @@ export const CryptoPercSpan = styled.span`
 `
 
 export const CryptoPriceWrap = styled.div`
-    
+    color: white;
+    font-weight: 500;
+    font-size: 22px;
+
+    @media (max-width: 400px)
+    {
+        font-size: 16px;
+    }
 `
