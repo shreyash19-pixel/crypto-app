@@ -52,6 +52,7 @@ export const NavLinks = styled.a`
         -webkit-background-clip: text; /* For Safari */
         background-clip: text;
         color: transparent;
+        transition: all .4s ease-in-out;
     }
 
     @media (max-width: 768px)
