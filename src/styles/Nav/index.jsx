@@ -34,6 +34,7 @@ export const NavLinksWrap = styled.div`
     align-items: center;
     gap: 30px;
 
+
     @media (max-width: 768px)
     {
         display: none;
@@ -45,6 +46,13 @@ export const NavLinks = styled.a`
     color: white;
     font-size: 21px;
     font-weight: 500;
+
+    &:hover{
+        background: linear-gradient(25deg, #2600fc, #ff00ea);
+        -webkit-background-clip: text; /* For Safari */
+        background-clip: text;
+        color: transparent;
+    }
 
     @media (max-width: 768px)
     {
