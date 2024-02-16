@@ -1,9 +1,10 @@
 import React,{useEffect, useContext} from 'react'
-import { CryptoImg, CryptoImgWrap, CryptoPercSpan, CryptoPercWrap, CryptoPriceAndImgWrap, CryptoPriceAndPercWrap, CryptoPriceWrap, HeroContainer, HeroHeading1,HeroHeading1Wrap,HeroHeading2, HeroHeadingCryptoImg, HeroHeadingCryptoImgWrap,  HeroHeadingWrap, HeroWrap, Top4CryptoWrap } from '../../styles/Hero'
+import { CryptoImg, CryptoImgWrap, CryptoPercSpan, CryptoPercWrap, CryptoPriceAndImgWrap, CryptoPriceAndPercWrap, CryptoPriceWrap, HeroContainer, HeroHeading1,HeroHeading1Wrap,HeroHeading2, HeroHeadingCryptoImg, HeroHeadingCryptoImgWrap,  HeroHeadingWrap, HeroWrap, Top4CryptoContainer, Top4CryptoWrap } from '../../styles/Hero'
 import BitCoinImg from '../../assets/Bitcoin.png'
 import EthImg from '../../assets/Ethereum.png'
 import AppContext from '../../utils/AppContext';
 import axios from 'axios';
+import Loader from '../../components/Loader';
 const Hero = () => {
 
     const {data, setData,page} = useContext(AppContext)
@@ -41,7 +42,7 @@ const Hero = () => {
     }
 
   return (
-    <HeroContainer>
+    <HeroContainer id = "Home">
         <HeroWrap>
             <HeroHeadingWrap>     
                 <HeroHeading1Wrap>
@@ -55,6 +56,9 @@ const Hero = () => {
                 </HeroHeading1Wrap>
                 <HeroHeading2>CRYPTO CURRENCIES</HeroHeading2>   
             </HeroHeadingWrap>
+            {
+            data.length > 0 ?
+            (<Top4CryptoContainer>      
             <Top4CryptoWrap>
                 {data.slice(0,4).map((crp,index) => (
                 <CryptoPriceAndImgWrap>
@@ -76,6 +80,12 @@ const Hero = () => {
                 </CryptoPriceAndImgWrap>
                 ))}
             </Top4CryptoWrap>
+        </Top4CryptoContainer>)
+        :(
+            <Top4CryptoContainer style={{display : "flex", justifyContent : "center", alignItems : "center"}}>
+                <Loader />
+            </Top4CryptoContainer>
+        )}
         </HeroWrap>
     </HeroContainer>
   )

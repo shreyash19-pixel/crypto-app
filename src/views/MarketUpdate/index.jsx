@@ -2,6 +2,7 @@ import React, {useContext} from 'react'
 import {MarketTableHeadingContents, MarketContainer, MarketHeading, MarketTableHeadingWrap, MarketTableWrap, MarketWrap, MarketTableDataWrap, CryptoImgAndNameWrap, CryptoImg, MarketTableDataContainer, ButtonWrap, Button } from '../../styles/MarketUpdate'
 import { CryptoImgWrap, CryptoPercSpan, CryptoPercWrap, CryptoPriceWrap} from '../../styles/Hero'
 import AppContext from '../../utils/AppContext';
+import Loader from '../../components/Loader';
 
 const MarketUpdate = () => {
 
@@ -31,7 +32,7 @@ function numberWithCommas(x) {
   
 
   return (
-    <MarketContainer>
+    <MarketContainer id = "Market">
       <MarketWrap>
         <MarketHeading>
             Market Update
@@ -70,9 +71,9 @@ function numberWithCommas(x) {
               ))}
             </MarketTableDataContainer>
             ) : (
-                <MarketTableDataContainer>
-                    <MarketTableDataWrap>
-                        {"Loading...."}
+                <MarketTableDataContainer style={{display : "flex", justifyContent : "center", alignItems : "center"}}>
+                    <MarketTableDataWrap style={{display : "flex", justifyContent : "center", alignItems : "center"}}>
+                        <Loader />
                     </MarketTableDataWrap>
                 </MarketTableDataContainer>
             )}

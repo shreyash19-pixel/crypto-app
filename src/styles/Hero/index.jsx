@@ -113,6 +113,10 @@ export const HeroHeading2 = styled.h1`
     }
 `;
 
+export const Top4CryptoContainer = styled.div`
+    
+`
+
 export const Top4CryptoWrap = styled.div`
     display: grid;
     grid-gap: 80px;

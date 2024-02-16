@@ -5,6 +5,7 @@
   font-family: "Space Grotesk", sans-serif;
   scrollbar-color: #db00d9 #fff;
   scrollbar-width: thin;
+  scroll-behavior: smooth;
 }
 
 body {

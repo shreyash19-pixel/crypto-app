@@ -20,7 +20,7 @@ const About = () => {
     ]
 
   return (
-    <AboutContainer>
+    <AboutContainer id = "Choose Us">
         <AboutWrap>
             <AboutHeadingWrap>
                 WHY <AboutHeadingSpan>&nbsp; CHOOSE US</AboutHeadingSpan>

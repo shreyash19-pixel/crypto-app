@@ -3,10 +3,11 @@ import { HeroHeading1, HeroHeading1Wrap, HeroHeading2, HeroHeadingCryptoImg, Her
 import BitCoinImg from '../../assets/Bitcoin.png'
 import EthImg from '../../assets/Ethereum.png'
 import { DiscordBtn, DiscordBtnWrap, DiscordContainer, DiscordDesc } from '../../styles/Discord'
+import Loader from '../../components/Loader'
 
 const Discord = () => {
   return (
-    <DiscordContainer>
+    <DiscordContainer id = "Join">
         <HeroWrap>
             <HeroHeadingWrap>
                 <HeroHeading1Wrap>
