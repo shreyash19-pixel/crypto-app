@@ -7,6 +7,7 @@ export const NavbarWrap = styled.div`
     box-shadow: ${(props) => (props.isSticky ? "0px 10px 5px 0px rgba(0, 0, 0, 0.16);" : "none")};
     position: fixed;
     z-index: 99;
+    left:0;
     
     @media (max-width : 1000px) {
         padding-inline: 40px;
